@@ -1,0 +1,32 @@
+src/index.css
+
+
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --violet: #7E2BFF;
+  --ink: #07070A;
+  --hair: rgba(7,7,10,.08);
+  --hair2: rgba(7,7,10,.05);
+}
+
+html, body { height: 100%; }
+body {
+  background: #fff;
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(126,43,255,.22); color: var(--ink); }
+
+@keyframes bndr_marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+.bndr-marquee { animation: bndr_marquee 28s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bndr-marquee { animation: none; }
+}
