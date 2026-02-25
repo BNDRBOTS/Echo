@@ -1,3 +1,4 @@
+// src/pages/GraffitiWall.tsx
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -22,30 +23,31 @@ export default function GraffitiWall() {
     const colors = ["#ff0033", "#ffffff", "#cccccc", "#ff0033", "#111111"];
     const fonts = ["font-anton", "font-bebas", "font-sans font-black tracking-[-0.02em]"];
     const words = [
-      "PX BURN", "SCOTTSDALE KING", "ARIZONA FREIGHT", "COMMERCIAL BOMB", 
-      "NO COMPROMISE", "LITERAL", "GLOSS", "LACQUER", "TOP TO BOTTOM", 
-      "YARD BURNER", "PHOENIX THROW", "EQUITY TAG", "HEAVY ROLL", "ZONE", 
-      "RESTRICTED", "2026", "CAPITAL DRIP", "STRUCTURAL", "DOMINANCE"
+      "PX TAG", "YARD KING", "SCOTTSDALE BURN", "BLOCK HIT", 
+      "NO TALK", "JUST TAG", "TOP TO BOTTOM", "FREIGHT ROLL", 
+      "PHOENIX TAG", "EQUITY BOMB", "HEAVY", "ZONE LOCK", 
+      "RESTRICTED", "BURN IT", "CAPITAL TAG", "LITERAL", 
+      "GLOSS DRIP", "YARD OWNED", "DO IT"
     ];
 
-    for (let i = 0; i < 460; i++) {
+    for (let i = 0; i < 520; i++) {
       arr.push({
         text: words[Math.floor(rng() * words.length)],
-        top: `${rng() * 460}%`,
-        left: `${(rng() * 135) - 18}%`,
+        top: `${rng() * 480}%`,
+        left: `${(rng() * 140) - 20}%`,
         color: colors[Math.floor(rng() * colors.length)],
         font: fonts[Math.floor(rng() * fonts.length)],
-        size: `${Math.floor(rng() * 21) + 6}vw`,
-        rotate: `${(rng() * 240) - 120}deg`,
-        z: Math.floor(rng() * 180) + 20,
+        size: `${Math.floor(rng() * 23) + 7}vw`,
+        rotate: `${(rng() * 260) - 130}deg`,
+        z: Math.floor(rng() * 200) + 30,
       });
     }
 
-    for (let i = 0; i < 34; i++) {
+    for (let i = 0; i < 40; i++) {
       d1.push({
-        top: `${rng() * 440}%`,
-        left: `${rng() * 98}%`,
-        rotate: `${rng() * 68 - 34}deg`,
+        top: `${rng() * 460}%`,
+        left: `${rng() * 102}%`,
+        rotate: `${rng() * 75 - 37}deg`,
         type: Math.floor(rng() * 3)
       });
     }
@@ -54,10 +56,9 @@ export default function GraffitiWall() {
   }, []);
 
   return (
-    <div className="w-full min-h-[480vh] relative overflow-hidden bg-[#000000]">
-      {/* TRAIN CAR BASE */}
+    <div className="w-full min-h-[520vh] relative overflow-hidden bg-[#000000]">
       <div className="absolute inset-0 z-0 pointer-events-none flex flex-col gap-[28vh] pt-12">
-        {[...Array(18)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div key={i} className="w-full h-[36vh] border-y-[4px] border-[#111] bg-[#0a0a0a] relative overflow-hidden">
             <div className="absolute left-[4%] font-mono font-black text-[#111] text-[15vw] tracking-[-0.08em] whitespace-nowrap opacity-30">
               PX FREIGHT {1998 + i} • SCOTTSDALE YARD
@@ -66,7 +67,6 @@ export default function GraffitiWall() {
         ))}
       </div>
 
-      {/* CROWDED NEON GRAFFITI LAYER */}
       <div className="absolute inset-0 z-20 pointer-events-auto">
         {tags.map((tag, i) => (
           <motion.div
@@ -89,14 +89,13 @@ export default function GraffitiWall() {
             whileHover={{ scale: 1.28 }}
             onHoverStart={() => setHovered(i)}
             onHoverEnd={() => setHovered(null)}
-            transition={{ duration: 1.8, delay: i * 0.004 }}
+            transition={{ duration: 1.8, delay: i * 0.003 }}
           >
             {tag.text}
           </motion.div>
         ))}
       </div>
 
-      {/* STICKER DECALS */}
       <div className="absolute inset-0 z-30 pointer-events-none">
         {decals.map((d, i) => (
           <motion.div 
@@ -114,7 +113,7 @@ export default function GraffitiWall() {
             initial={{ scale: 0.5, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.018 }}
+            transition={{ delay: i * 0.015 }}
           >
             <div>INSPECTED PX</div>
             <div className="text-6xl leading-none mt-1 -tracking-[0.02em]">DO NOT BUFF</div>
