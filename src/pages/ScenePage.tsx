@@ -1,3 +1,4 @@
+// src/pages/ScenePage.tsx
 import { motion } from "framer-motion";
 
 export default function ScenePage() {
@@ -19,23 +20,23 @@ export default function ScenePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.6, delay: 0.4 }}
         >
-          COMMERCIAL REALITY
+          YARD OWNED
         </motion.div>
 
-        <motion.div className="absolute top-[24%] left-[7%] bg-white text-black font-bold text-xs tracking-[0.28em] px-9 py-4 border-2 border-black shadow-[10px_10px_0_#ff0033]" initial={{ rotate: -14 }} animate={{ rotate: -9 }} transition={{ delay: 0.9 }}>CAPITAL BURN</motion.div>
-        <motion.div className="absolute bottom-[23%] right-[8%] bg-[#ff0033] text-white font-bold text-xs tracking-[0.28em] px-9 py-4 border-2 border-white shadow-[-10px_10px_0_#fff]" initial={{ rotate: 16 }} animate={{ rotate: 11 }} transition={{ delay: 1.2 }}>NO BUFFER</motion.div>
+        <motion.div className="absolute top-[24%] left-[7%] bg-white text-black font-bold text-xs tracking-[0.28em] px-9 py-4 border-2 border-black shadow-[10px_10px_0_#ff0033]" initial={{ rotate: -14 }} animate={{ rotate: -9 }} transition={{ delay: 0.9 }}>BLOCKS MOVED</motion.div>
+        <motion.div className="absolute bottom-[23%] right-[8%] bg-[#ff0033] text-white font-bold text-xs tracking-[0.28em] px-9 py-4 border-2 border-white shadow-[-10px_10px_0_#fff]" initial={{ rotate: 16 }} animate={{ rotate: 11 }} transition={{ delay: 1.2 }}>NO TALK</motion.div>
       </section>
 
       <section className="relative w-full max-w-7xl mx-auto px-10 py-32 flex flex-col lg:flex-row gap-24 z-10">
         <div className="lg:w-5/12 border-l-4 border-[#ff0033] pl-12">
           <motion.h3 className="font-anton text-[7.4rem] leading-[0.86] tracking-[-0.04em]" initial={{ opacity: 0, y: 70 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            THE ONLY<br/>STANDARD
+            THIS IS THE<br/>YARD
           </motion.h3>
           <p className="mt-12 text-[#999] text-[1.18rem] leading-relaxed font-medium tracking-wide">
-            Built for the ones who own the desert. No templates. No excuses. Pure execution.
+            We tag the buildings that matter. The rest get passed over.
           </p>
           <motion.div className="mt-16 inline-block border-2 border-white px-16 py-6 text-2xl font-bebas tracking-widest hover:bg-white hover:text-black transition-all cursor-pointer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-            LOCK IN
+            HIT THE YARD
           </motion.div>
         </div>
 
@@ -44,7 +45,7 @@ export default function ScenePage() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-[3px] h-[160%] bg-gradient-to-b from-transparent via-[#ff0033] to-transparent -rotate-12" />
           </div>
-          <div className="absolute bottom-10 right-10 font-mono text-xs tracking-[0.35em] text-[#444]">PROTOCOL 00 — BURNED IN</div>
+          <div className="absolute bottom-10 right-10 font-mono text-xs tracking-[0.35em] text-[#444]">BURNED IN</div>
         </div>
       </section>
     </div>
