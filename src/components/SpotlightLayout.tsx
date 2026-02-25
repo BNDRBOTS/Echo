@@ -1,16 +1,27 @@
+// src/components/SpotlightLayout.tsx   ← THIS WAS THE ONLY BROKEN FILE
 import { useEffect, useState, useRef, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
 
 export default function SpotlightLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const springX = useSpring(cursorX, { stiffness: 210, damping: 26 });
-  const springY = useSpring(cursorY, { stiffness: 210, damping: 26 });
+  const cursorX = useMotionValue(-2000);
+  const cursorY = useMotionValue(-2000);
+  
+  const springX = useSpring(cursorX, { stiffness: 280, damping: 32 });
+  const springY = useSpring(cursorY, { stiffness: 280, damping: 32 });
 
   const [currentTime, setCurrentTime] = useState("");
   const ringRef = useRef<HTMLDivElement>(null);
+  const maskRef = useRef<HTMLDivElement>(null);
+
+  // LIVE CSS VAR UPDATES FOR THE MASK (this was the bug causing "only in corners")
+  useMotionValueEvent(springX, "change", (v) => {
+    maskRef.current?.style.setProperty("--cursor-x", `${v}px`);
+  });
+  useMotionValueEvent(springY, "change", (v) => {
+    maskRef.current?.style.setProperty("--cursor-y", `${v}px`);
+  });
 
   useEffect(() => {
     const updateTime = () => {
@@ -63,10 +74,7 @@ export default function SpotlightLayout({ children }: { children: ReactNode }) {
       <motion.div className="cursor-dot" style={{ left: springX, top: springY }} />
       <motion.div className="lacquer-lens" style={{ left: springX, top: springY }} />
 
-      <div 
-        className="spotlight-mask" 
-        style={{ '--cursor-x': `${springX.get()}px`, '--cursor-y': `${springY.get()}px` } as any} 
-      />
+      <div ref={maskRef} className="spotlight-mask" />
 
       <nav className="fixed top-0 left-0 w-full z-70 bg-gradient-to-b from-black/95 to-black/95 backdrop-blur-3xl border-b border-[#111] shadow-[0_40px_80px_rgba(0,0,0,0.98)] px-8 lg:px-16 py-7 flex justify-between items-center pointer-events-auto">
         <motion.div className="font-bebas text-4xl tracking-[0.06em] hover:text-[#ff0033] transition-all" whileHover={{ scale: 1.015 }}>
