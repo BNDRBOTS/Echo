@@ -1,176 +1,117 @@
+// src/index.css
 @import "tailwindcss";
+
 @theme {
---font-sans: 'Inter', sans-serif;
---font-bebas: 'Bebas Neue', sans-serif;
---font-anton: 'Anton', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-bebas: 'Bebas Neue', sans-serif;
+  --font-anton: 'Anton', sans-serif;
 }
+
 :root {
---cursor-x: -100vw;
---cursor-y: -100vh;
---neon-red: #ff0033;
+  --cursor-x: -100vw;
+  --cursor-y: -100vh;
+  --neon-red: #ff0033;
 }
+
 html, body {
-background-color: #000000;
-color: #ffffff;
-margin: 0;
-padding: 0;
-overflow-x: hidden;
-cursor: none;
--webkit-font-smoothing: antialiased;
-overscroll-behavior: none;
-font-family: 'Inter', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+  font-family: 'Inter', sans-serif;
 }
+
 ::-webkit-scrollbar { display: none; }
+
 .cursor-ring {
-position: fixed;
-width: 42px;
-height: 42px;
-border: 1.5px solid rgba(255,255,255,0.45);
-border-radius: 50%;
-z-index: 999;
-pointer-events: none;
-mix-blend-mode: difference;
-transform: translate(-50%, -50%);
-transition: width 0.18s cubic-bezier(0.23,1,0.32,1), height 0.18s cubic-bezier(0.23,1,0.32,1);
-box-shadow: 0 0 0 3px rgba(255,0,51,0.3);
+  position: fixed;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 50%;
+  z-index: 999;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.18s cubic-bezier(0.23,1,0.32,1), height 0.18s cubic-bezier(0.23,1,0.32,1);
+  box-shadow: 0 0 0 3px rgba(255,0,51,0.3);
 }
+
 .cursor-dot {
-position: fixed;
-width: 7px;
-height: 7px;
-background: #ffffff;
-border-radius: 50%;
-z-index: 1000;
-pointer-events: none;
-mix-blend-mode: difference;
-transform: translate(-50%, -50%);
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  background: #ffffff;
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
 }
+
 .spotlight-mask {
-position: fixed;
-inset: 0;
-background: #000000;
-z-index: 50;
-pointer-events: none;
-mask-image: radial-gradient(circle 480px at var(--cursor-x) var(--cursor-y), transparent 26%, rgba(0,0,0,0.96) 58%, #000000 100%);
--webkit-mask-image: radial-gradient(circle 480px at var(--cursor-x) var(--cursor-y), transparent 26%, rgba(0,0,0,0.96) 58%, #000000 100%);
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 50;
+  pointer-events: none;
+  mask-image: radial-gradient(circle 480px at var(--cursor-x) var(--cursor-y), transparent 26%, rgba(0,0,0,0.96) 58%, #000000 100%);
+  -webkit-mask-image: radial-gradient(circle 480px at var(--cursor-x) var(--cursor-y), transparent 26%, rgba(0,0,0,0.96) 58%, #000000 100%);
 }
+
 .lacquer-lens {
-position: fixed;
-top: calc(var(--cursor-y) - 480px);
-left: calc(var(--cursor-x) - 480px);
-width: 960px;
-height: 960px;
-border-radius: 50%;
-pointer-events: none;
-z-index: 45;
-backdrop-filter: blur(22px) contrast(1.55) saturate(2.8) brightness(1.35);
--webkit-backdrop-filter: blur(22px) contrast(1.55) saturate(2.8) brightness(1.35);
-box-shadow:
-inset 0 0 160px rgba(255,255,255,0.42),
-inset 0 0 90px rgba(255,0,51,0.38),
-0 0 140px rgba(255,0,51,0.28),
-0 0 320px rgba(0,0,0,0.99);
-border: 2px solid rgba(255,255,255,0.22);
-background:
-radial-gradient(circle at 32% 28%, rgba(255,255,255,0.38) 0%, transparent 48%),
-radial-gradient(circle at 71% 69%, rgba(255,0,51,0.26) 0%, transparent 62%);
-animation: lacquer-flow 7.2s infinite ease-in-out;
+  position: fixed;
+  top: calc(var(--cursor-y) - 480px);
+  left: calc(var(--cursor-x) - 480px);
+  width: 960px;
+  height: 960px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 45;
+  backdrop-filter: blur(24px) contrast(1.65) saturate(3.1) brightness(1.4);
+  -webkit-backdrop-filter: blur(24px) contrast(1.65) saturate(3.1) brightness(1.4);
+  box-shadow: 
+    inset 0 0 180px rgba(255,255,255,0.55),
+    inset 0 0 110px rgba(255,0,51,0.55),
+    0 0 160px rgba(255,0,51,0.45),
+    0 0 380px rgba(0,0,0,0.99);
+  border: 2px solid rgba(255,255,255,0.28);
+  background: 
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,0.48) 0%, transparent 45%),
+    radial-gradient(circle at 72% 68%, rgba(255,0,51,0.42) 0%, transparent 58%);
+  animation: lacquer-flow 6.8s infinite ease-in-out;
 }
+
 @keyframes lacquer-flow {
-0%, 100% { transform: scale(1) rotate(0deg); }
-50% { transform: scale(1.022) rotate(0.8deg); }
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.028) rotate(1.2deg); }
 }
+
 body::after {
-content: '';
-position: fixed;
-inset: 0;
-pointer-events: none;
-z-index: 60;
-background:
-radial-gradient(circle at var(--cursor-x) var(--cursor-y), transparent 34%, rgba(255,255,255,0.018) 100%),
-url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27100%27 height=%27100%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.85%27 numOctaves=%275%27/%3E%3C/filter%3E%3Crect width=%27100%27 height=%27100%27 filter=%27url(%23n)%27 opacity=%270.042%27/%3E%3C/svg%27') repeat;
-mix-blend-mode: overlay;
-animation: grain 0.65s steps(2) infinite;
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background: 
+    radial-gradient(circle at var(--cursor-x) var(--cursor-y), transparent 34%, rgba(255,255,255,0.018) 100%),
+    url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27100%27 height=%27100%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.85%27 numOctaves=%275%27/%3E%3C/filter%3E%3Crect width=%27100%27 height=%27100%27 filter=%27url(%23n)%27 opacity=%270.042%27/%3E%3C/svg%27') repeat;
+  mix-blend-mode: overlay;
+  animation: grain 0.65s steps(2) infinite;
 }
+
 @keyframes grain {
-0% { transform: translate(0,0); }
-25% { transform: translate(-2px,1px); }
-50% { transform: translate(1px,-2px); }
-75% { transform: translate(-1px,2px); }
-100% { transform: translate(0,0); }
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-2px,1px); }
+  50% { transform: translate(1px,-2px); }
+  75% { transform: translate(-1px,2px); }
+  100% { transform: translate(0,0); }
 }
+
 .neon-graffiti {
-text-shadow: 0 0 12px #ff0033, 0 0 24px #ff0033, 0 0 48px #ff0033, 0 0 72px rgba(255,0,51,0.6);
-}
-</DOCUMENT>
-<DOCUMENT filename="src/components/SpotlightLayout.tsx">
-import { useEffect, useState, useRef, ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { motion, useMotionValue, useSpring } from "framer-motion";
-export default function SpotlightLayout({ children }: { children: ReactNode }) {
-const location = useLocation();
-const cursorX = useMotionValue(-100);
-const cursorY = useMotionValue(-100);
-const springX = useSpring(cursorX, { stiffness: 210, damping: 26 });
-const springY = useSpring(cursorY, { stiffness: 210, damping: 26 });
-const [currentTime, setCurrentTime] = useState("");
-const ringRef = useRef<HTMLDivElement>(null);
-useEffect(() => {
-const updateTime = () => {
-const now = new Date();
-const formatted = now.toLocaleString('en-US', {
-month: '2-digit', day: '2-digit', year: '2-digit',
-hour: '2-digit', minute: '2-digit', hour12: false
-}).replace(',', ' •') + ' MST';
-setCurrentTime(formatted);
-};
-updateTime();
-const interval = setInterval(updateTime, 20000);
-return () => clearInterval(interval);
-}, []);
-useEffect(() => {
-const handleMouseMove = (e: MouseEvent) => {
-cursorX.set(e.clientX);
-cursorY.set(e.clientY);
-const isLink = (e.target as HTMLElement).closest('a');
-if (ringRef.current) {
-ringRef.current.style.width = isLink ? '66px' : '42px';
-ringRef.current.style.height = isLink ? '66px' : '42px';
-}
-};
-const handleTouchMove = (e: TouchEvent) => {
-if (e.touches.length > 0) {
-cursorX.set(e.touches[0].clientX);
-cursorY.set(e.touches[0].clientY);
-}
-};
-window.addEventListener("mousemove", handleMouseMove, { passive: true });
-window.addEventListener("touchmove", handleTouchMove, { passive: true });
-return () => {
-window.removeEventListener("mousemove", handleMouseMove);
-window.removeEventListener("touchmove", handleTouchMove);
-};
-}, [cursorX, cursorY]);
-return (
-    
-      
-        {children}
-      
-<motion.div ref={ringRef} className="cursor-ring" style={{ left: springX, top: springY }} />
-<motion.div className="cursor-dot" style={{ left: springX, top: springY }} />
-<motion.div className="lacquer-lens" style={{ left: springX, top: springY }} />
-      
-      
-        <motion class="div font-bebas text-4xl tracking-[0.06em] hover:text-[#ff0033] transition-all" whilehover="{{" scale:="" 1.015="" }}="">
-          <link to="/">PX // SCOTTSDALE
-        </motion>
-        
-          <link to="/" class="{&#x60;hover:text-white" transition-colors="" ${location.pathname="==" &#x27;="" ?="" &#x27;text-white&#x27;="" :="" &#x27;text-[#555]&#x27;}&#x60;}="">SCENE
-          <link to="/yard" class="{&#x60;hover:text-white" transition-colors="" ${location.pathname="==" &#x27;="" yard&#x27;="" ?="" &#x27;text-white&#x27;="" :="" &#x27;text-[#555]&#x27;}&#x60;}="">YARD
-          <link to="/directives" class="{&#x60;hover:text-white" transition-colors="" ${location.pathname="==" &#x27;="" directives&#x27;="" ?="" &#x27;text-white&#x27;="" :="" &#x27;text-[#555]&#x27;}&#x60;}="">DIRECTIVES
-          {currentTime || "02.25.26 • 14:43 MST"}
-        
-      
-    
-  );
+  text-shadow: 0 0 12px #ff0033, 0 0 24px #ff0033, 0 0 48px #ff0033, 0 0 72px rgba(255,0,51,0.6);
 }
