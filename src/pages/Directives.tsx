@@ -1,11 +1,12 @@
+// src/pages/Directives.tsx
 import { motion } from "framer-motion";
 
 export default function Directives() {
   const list = [
-    { n: "01", title: "ZERO COMPROMISE", txt: "Templates get buried. We build what actually owns the market. Custom from the first line." },
-    { n: "02", title: "STRUCTURAL INTEGRITY", txt: "60fps under maximum load. No bloat. Code that hits like freight train at full speed." },
-    { n: "03", title: "PHOENIX / SCOTTSDALE ONLY", txt: "We only move for the real players in this valley. We know the heat. We know the money." },
-    { n: "04", title: "THE LITERAL APPROACH", txt: "What you see is exactly what ships. No promises. No filler. Raw commercial power." }
+    { n: "01", title: "ZERO COMPROMISE", txt: "No stock shit. Your site hits different or it dont hit at all." },
+    { n: "02", title: "STRUCTURAL INTEGRITY", txt: "60fps or nothing. The yard dont slow down for weak code." },
+    { n: "03", title: "PHOENIX / SCOTTSDALE ONLY", txt: "We only tag the blocks that matter here. Everywhere else can keep scrolling." },
+    { n: "04", title: "THE LITERAL APPROACH", txt: "What you see is what ships. No talk. Just the tag." }
   ];
 
   return (
@@ -13,9 +14,9 @@ export default function Directives() {
       <div className="max-w-6xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row justify-between border-b border-[#111] pb-12 mb-20">
           <motion.h1 className="font-anton text-[8.8rem] leading-[0.8] tracking-[-0.05em]" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            EXECUTIVE<br/><span className="text-[#ff0033]">DIRECTIVES</span>
+            DIRECTIVES
           </motion.h1>
-          <div className="max-w-xs mt-8 lg:mt-0 text-[#666] font-medium text-sm tracking-widest">For the ones who already run the desert.</div>
+          <div className="max-w-xs mt-8 lg:mt-0 text-[#666] font-medium text-sm tracking-widest">For the ones who already own the blocks.</div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-28 gap-y-28">
@@ -35,8 +36,8 @@ export default function Directives() {
         </div>
 
         <motion.div className="mt-44 flex justify-between items-end border-t border-[#111] pt-12" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-          <div className="font-bebas text-5xl tracking-widest hover:text-[#ff0033] transition-colors cursor-pointer">INITIATE CONTACT</div>
-          <div className="text-[#444] text-xs tracking-[0.45em] font-bold">PX • SCOTTSDALE • 2026</div>
+          <div className="font-bebas text-5xl tracking-widest hover:text-[#ff0033] transition-colors cursor-pointer">HIT US</div>
+          <div className="text-[#444] text-xs tracking-[0.45em] font-bold">PX • SCOTTSDALE</div>
         </motion.div>
       </div>
     </div>
