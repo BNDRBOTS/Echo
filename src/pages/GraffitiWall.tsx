@@ -1,4 +1,3 @@
-// src/pages/GraffitiWall.tsx
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
