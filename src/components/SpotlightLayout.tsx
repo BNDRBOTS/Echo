@@ -1,4 +1,3 @@
-// src/components/SpotlightLayout.tsx   ← THIS WAS THE ONLY BROKEN FILE
 import { useEffect, useState, useRef, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
